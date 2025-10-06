@@ -204,15 +204,15 @@ final class TranslateViewModel: ObservableObject {
 
     // MARK: - Data estático (ESTÁTICO)
     static let sampleCountries: [Country] = [
-        Country(name: "Francia (París, francés)",   flag: "🇫🇷", situations: frSituations()),
-        Country(name: "Italia (Roma, italiano)",    flag: "🇮🇹", situations: itSituations()),
-        Country(name: "Alemania (Berlín, alemán)",  flag: "🇩🇪", situations: deSituations()),
-        Country(name: "Japón (Tokio, japonés)",     flag: "🇯🇵", situations: jaSituations()),
-        Country(name: "China (Pekín, mandarín)",    flag: "🇨🇳", situations: zhSituations()),
-        Country(name: "Brasil (Río, portugués)",    flag: "🇧🇷", situations: ptBrSituations()),
-        Country(name: "Turquía (Estambul, turco)",  flag: "🇹🇷", situations: trSituations()),
-        Country(name: "Egipto (El Cairo, árabe)",   flag: "🇪🇬", situations: arEgSituations()),
-        Country(name: "India (Delhi, hindi)",       flag: "🇮🇳", situations: hiSituations()),
-        Country(name: "Reino Unido (Londres, inglés)", flag: "🇬🇧", situations: enGbSituations())
+        Country(name: "Francia", situations: frSituations()),
+        Country(name: "Italia", situations: itSituations()),
+        Country(name: "Alemania", situations: deSituations()),
+        Country(name: "Japón", situations: jaSituations()),
+        Country(name: "China", situations: zhSituations()),
+        Country(name: "Brasil", situations: ptBrSituations()),
+        Country(name: "Turquía", situations: trSituations()),
+        Country(name: "Egipto", situations: arEgSituations()),
+        Country(name: "India", situations: hiSituations()),
+        Country(name: "Reino Unido", situations: enGbSituations())
     ]
 }

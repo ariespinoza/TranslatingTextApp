@@ -21,6 +21,5 @@ struct Situation: Identifiable, Hashable {
 struct Country: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var flag: String? = nil     // opcional, para mostrar emoji/asset
     var situations: [Situation]
 }

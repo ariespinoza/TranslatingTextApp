@@ -48,13 +48,13 @@ struct CountryDetailView: View {
                 }
             }
         }
-        .navigationTitle(country.flag.map { "\($0) \(country.name)" } ?? country.name)
-        // 🎯 UI nativa de Apple con “Replace Translation”
-        .translationPresentation(isPresented: isPresentingTranslation, text: presentingText) { translated in
-            // Reemplazamos el texto en el modelo usando los índices guardados
-            if let path = selectedPath {
-                country.situations[path.situation].phrases[path.phrase].text = translated
+        .navigationTitle(country.name)
+            // 🎯 UI nativa de Apple con “Replace Translation”
+            .translationPresentation(isPresented: isPresentingTranslation, text: presentingText) { translated in
+                // Reemplazamos el texto en el modelo usando los índices guardados
+                if let path = selectedPath {
+                    country.situations[path.situation].phrases[path.phrase].text = translated
+                }
             }
-        }
     }
 }
