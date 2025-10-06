@@ -11,7 +11,7 @@ import SwiftUI
 struct TranslatingTextAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TranslateView()
         }
     }
 }
