@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct TranslatingTextAppApp: App {
+struct TranslatingTextApp: App {
     var body: some Scene {
         WindowGroup {
-            TranslateView()
+            ContentView()
         }
     }
 }
