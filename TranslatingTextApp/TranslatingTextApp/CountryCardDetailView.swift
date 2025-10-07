@@ -8,7 +8,7 @@
 import SwiftUI
 import Translation
 
-/// Pantalla de detalle: situaciones + frases con botón “Traducir” (Replace)
+// Situation + Phrases view with the “Traducir” (Replace) button
 struct CountryCardDetailView: View {
     @Binding var country: TranslateViewModel.Country
 
@@ -23,6 +23,7 @@ struct CountryCardDetailView: View {
     }
 
     var body: some View {
+        //we see the situation with the phrases and the "Traducir" button, what we see when we click on a country.
         List {
             ForEach(country.situations.indices, id: \.self) { sIdx in
                 Section(country.situations[sIdx].title) {
@@ -48,7 +49,7 @@ struct CountryCardDetailView: View {
             }
         }
         .navigationTitle(cleanCountryName(country.name))
-        // UI nativa con Replace: al aceptar, reemplazamos en el modelo
+        // native UI with Replace: when we accept, it gets replaced in the model
         .translationPresentation(isPresented: isPresentingTranslation, text: presentingText) { translated in
             if let path = selectedPath {
                 country.situations[path.situation].phrases[path.phrase].text = translated
