@@ -15,11 +15,11 @@ struct Phrase: Identifiable, Hashable {
 struct Situation: Identifiable, Hashable {
     var id = UUID()
     var title: String
-    var phrases: [Phrase]
+    var phrases: [Phrase] // to add the different phrases inside the situacion
 }
 
 struct Country: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var situations: [Situation]
+    var situations: [Situation] // to add the different situations to each country
 }

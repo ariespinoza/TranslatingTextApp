@@ -11,7 +11,7 @@ import Combine
 final class TranslateViewModel: ObservableObject {
     @Published var countries: [Country] = TranslateViewModel.sampleCountries
 
-    // Tipos
+    // MARK: - types of structures
     struct Phrase: Identifiable, Hashable { var id = UUID(); var text: String }
     struct Situation: Identifiable, Hashable { var id = UUID(); var title: String; var phrases: [Phrase] }
     struct Country: Identifiable, Hashable { var id = UUID(); var name: String; var flag: String?; var situations: [Situation] }
