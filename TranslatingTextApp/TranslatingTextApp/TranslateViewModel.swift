@@ -16,7 +16,7 @@ final class TranslateViewModel: ObservableObject {
     struct Situation: Identifiable, Hashable { var id = UUID(); var title: String; var phrases: [Phrase] }
     struct Country: Identifiable, Hashable { var id = UUID(); var name: String; var flag: String?; var situations: [Situation] }
 
-    // MARK: - Helpers (ESTÁTICOS)
+    // MARK: - static helpers
     private static func situationTitles() -> [String] {
         [
             "Cafetería","Transporte","Alojamiento","Restaurante","Emergencias",
@@ -31,7 +31,7 @@ final class TranslateViewModel: ObservableObject {
         }
     }
 
-    // MARK: - Frases por idioma (ESTÁTICAS)
+    // MARK: - static phrases per language
     private static func frSituations() -> [Situation] {
         let t = situationTitles()
         let p: [(String,String)] = [
@@ -202,7 +202,7 @@ final class TranslateViewModel: ObservableObject {
         return packSituations(t, p)
     }
 
-    // MARK: - Data estático (ESTÁTICO)
+    // MARK: - static data
     static let sampleCountries: [Country] = [
         Country(name: "Francia", situations: frSituations()),
         Country(name: "Italia", situations: itSituations()),

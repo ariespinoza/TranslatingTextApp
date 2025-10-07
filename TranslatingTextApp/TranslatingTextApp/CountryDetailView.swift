@@ -11,11 +11,10 @@ import Translation
 struct CountryDetailView: View {
     @Binding var country: Country
 
-    // guardamos el índice a reemplazar cuando el usuario presiona “Traducir”
+    // we save the index that we are replacing when the user presses “Traducir”
     @State private var selectedPath: (situation: Int, phrase: Int)?
     @State private var presentingText: String = ""
 
-    // binding booleano para mostrar/ocultar la hoja nativa
     private var isPresentingTranslation: Binding<Bool> {
         Binding(
             get: { selectedPath != nil },
@@ -49,9 +48,9 @@ struct CountryDetailView: View {
             }
         }
         .navigationTitle(country.name)
-            // 🎯 UI nativa de Apple con “Replace Translation”
+            // native Apple UI with “Replace Translation”
             .translationPresentation(isPresented: isPresentingTranslation, text: presentingText) { translated in
-                // Reemplazamos el texto en el modelo usando los índices guardados
+                // we replace the text and use the saved indexes
                 if let path = selectedPath {
                     country.situations[path.situation].phrases[path.phrase].text = translated
                 }

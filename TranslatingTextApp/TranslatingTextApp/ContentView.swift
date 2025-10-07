@@ -31,9 +31,9 @@ struct ContentView: View {
         }
     }
 
-    // MARK: - Helpers (solo para ContentView)
+    // MARK: - helpers
 
-    /// Muestra solo el nombre del país (quita paréntesis y extras)
+    //shows the name of the country
     private func displayName(_ raw: String) -> String {
         if let cut = raw.firstIndex(of: "(") {
             return String(raw[..<cut]).trimmingCharacters(in: .whitespaces)
@@ -41,10 +41,7 @@ struct ContentView: View {
         return raw
     }
 
-    /// Genera el nombre de la imagen en Assets:
-    /// - minúsculas
-    /// - sin tildes/diacríticos
-    /// - sin lo que está entre paréntesis
+    /// generate the name of the images in assets
     private func imageName(for raw: String) -> String {
         let base = displayName(raw)
         let folded = base.folding(options: .diacriticInsensitive, locale: .current)
@@ -52,7 +49,7 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Tarjeta con imagen + texto superpuesto (estilo “explore”)
+// MARK: - card view to put the images with the name of the country in front
 private struct CountryCard: View {
     let title: String
     let imageName: String
@@ -78,15 +75,14 @@ private struct CountryCard: View {
                 .padding(.bottom, 14)
         }
     }
-
-    // Importante: aplicar .resizable / .scaledToFill SOLO cuando devolvemos Image
+    
     @ViewBuilder
     private var cardImage: some View {
         #if canImport(UIKit)
         if let ui = UIImage(named: imageName) {
             Image(uiImage: ui)
                 .resizable()
-                .scaledToFill()   // equivalente a aspectRatio(contentMode: .fill)
+                .scaledToFill()
         } else {
             ZStack {
                 Color.gray.opacity(0.25)
@@ -96,7 +92,6 @@ private struct CountryCard: View {
             }
         }
         #else
-        // macOS: si el asset existe, se mostrará; si no, queda vacío
         Image(imageName)
             .resizable()
             .scaledToFill()
@@ -104,7 +99,7 @@ private struct CountryCard: View {
     }
 }
 
-// MARK: - Detail LOCAL compatible con los tipos anidados del ViewModel
+// MARK: - local detail compatible with view model
 
 private struct CountryDetailViewLocal: View {
     @Binding var country: TranslateViewModel.Country
